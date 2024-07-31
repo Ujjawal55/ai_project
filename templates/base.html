@@ -1,29 +1,28 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Favicon -->
-    <link
-      rel="shortcut icon"
-      href="{% static 'images/favicon.ico' %}"
-      type="image/x-icon"
-    />
-    <!-- Icon - IconMonster -->
-    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}" />
-    <!-- Mumble UI -->
-    <link rel="stylesheet" href='{% static "uikit/styles/uikit.css" %}' />
-    <!-- Dev Search UI -->
-    <link rel="stylesheet" href='{% static "styles/app.css" %}' />
-  </head>
-  <body>
-    {% block content %}
-    <h2>this is from the base.html</h2>
 
-    {% endblock content %}
-  </body>
-  <script src="{% static 'uikit/app.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+  <!-- Icon - IconMonster -->
+  <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}" />
+  <!-- Mumble UI -->
+  <link rel="stylesheet" href='{% static "uikit/styles/uikit.css" %}' />
+  <!-- Dev Search UI -->
+  <link rel="stylesheet" href='{% static "styles/app.css" %}' />
+</head>
+
+<body>
+  <h2>this is from the base.html</h2>
+  {% block content %}
+
+  {% endblock content %}
+</body>
+<script src="{% static 'uikit/app.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
 </html>
