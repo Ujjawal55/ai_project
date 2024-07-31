@@ -1,7 +1,9 @@
 from django.shortcuts import render
-
+from calorie.forms import FileUploadForm
 # Create your views here.
 
 
 def homePage(request):
-    return render(request, "calorie/index.html")
+    form = FileUploadForm()
+    context = {"form": form}
+    return render(request, "calorie/index.html", context)

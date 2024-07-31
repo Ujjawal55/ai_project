@@ -119,12 +119,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
+# simply  replace {% static 'css/style.css' --> with static/css/style.css}
 STATIC_URL = "static/"
 
 MEDIA_URL = "/images/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images/")
 
+
+# this set the static files so that the django will look in the path for the static files.
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
