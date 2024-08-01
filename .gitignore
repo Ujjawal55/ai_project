@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 static/images/*
 !static/images/.gitkeep
+.env
