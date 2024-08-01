@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if page != "result" %}
+
+<main class="formPage my-xl">
+  <div class="content-box">
+    <div class="formWrapper">
+      <h1>Upload the Image Here</h1>
+      <form class="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="file-input-container">
+          <label for="id_file">Browse...</label>
+          <input type="file" id="id_file" name="file" accept="image/*">
+        </div>
+        <input class="btn btn--sub btn--lg my-md" type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</main>
+
+{% else %}
+<main class="formPage my-xl">
+  <div class="content-wrapper">
+    <div class="content-box">
+      <div class="formWrapper">
+        <h1>here the name of the image will come</h1>
+        <div class="image-container">
+          {% comment %}
+          #NOTE: this is the command to append the string in the django ('String'|:add anotherstring)
+          {% endcomment %}
+          <img src="{% static 'images/'|add:file_name %}" alt="Food Image" class="food-image">
+        </div>
+      </div>
+    </div>
+    <div class="content-box">
+      <div class="formWrapper">
+        <h2>this is for the calorie content</h2>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endif %}
+{% endblock content %}

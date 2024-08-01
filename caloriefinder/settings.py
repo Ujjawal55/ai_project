@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "calorie.apps.CalorieConfig",
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",  # NOTE: added this so that MEDIA_URL command is availabel in the templates
             ],
         },
     },
@@ -118,11 +120,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
+# NOTE: simply  replace {% static 'css/style.css' --> with static/css/style.css}
 STATIC_URL = "static/"
 
+# NOTE: similar to the static url
 MEDIA_URL = "/images/"
 
+# NOTE: it specify where we should store the user uploaded files
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images/")
+
+# NOTE: this settings tell django to look in the given directory for the static files
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
