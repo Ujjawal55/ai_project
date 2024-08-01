@@ -1,3 +1,5 @@
 .Ai-project/
+calorie/__pycache__/*
+caloriefinder/__pycache__/*
 static/images/*
 !static/images/.gitkeep
