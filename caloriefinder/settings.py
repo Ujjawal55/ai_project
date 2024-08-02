@@ -30,10 +30,10 @@ SECRET_KEY = "django-insecure-p#)je&wst^$r61#)!&_jzc_*$)a+#lw0irkru%m*0_im!tv#nb
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "aiproject-production-4a15.up.railway.app",
-    "https://aiproject-production-4a15.up.railway.app",
+    "aiproject-production-f0c7.up.railway.app",
+    "https://aiproject-production-f0c7.up.railway.app",
 ]
-CSRF_TRUSTED_ORIGINS = ["https://aiproject-production-4a15.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://aiproject-production-f0c7.up.railway.app"]
 
 # Application definition
 
