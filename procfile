@@ -1,0 +1,2 @@
+web: gunicorn calorie.wsgi --logfile
+web: python manage.py migrate && gunicorn calorie.wsg

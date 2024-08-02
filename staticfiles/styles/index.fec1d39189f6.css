@@ -1,0 +1,56 @@
+.content-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  height: 80vh;
+  flex-wrap: wrap;
+  /* Allow items to wrap on smaller screens */
+}
+
+.content-box {
+  width: 40%;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  /* Add some space between boxes when stacked */
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.image-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.food-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 2px solid var(--color-light);
+  border-radius: 0.7rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .content-box {
+    width: 90%;
+    /* Adjust width for mobile */
+    margin: 0 auto 20px;
+    /* Center the boxes and add space between them */
+  }
+}
