@@ -11,8 +11,7 @@
       <form class="form" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="file-input-container">
-          <label for="id_file">Browse...</label>
-          <input type="file" id="id_file" name="file" accept="image/*">
+          {{form.image}}
         </div>
         <input class="btn btn--sub btn--lg my-md" type="submit" value="Submit" />
       </form>
@@ -30,13 +29,16 @@
           {% comment %}
           #NOTE: this is the command to append the string in the django ('String'|:add anotherstring)
           {% endcomment %}
-          <img src="{% static 'images/'|add:file_name %}" alt="Food Image" class="food-image">
+          <img src="{{file.image.url}}" alt="Food Image" class="food-image">
         </div>
       </div>
     </div>
     <div class="content-box">
       <div class="formWrapper">
         <h2>this is for the calorie content</h2>
+        {% for item in items %}
+        <div>{{item}}</div>
+        {% endfor %}
       </div>
     </div>
   </div>

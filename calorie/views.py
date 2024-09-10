@@ -1,26 +1,29 @@
 from django.shortcuts import render, redirect
 from calorie.forms import FileUploadForm
-from django.core.files.storage import default_storage
-
-# TODO: add the handle when the image that is uploaded is not valid..
+from calorie.models import Food
+from calorie.utils import getContent
 
 
 def upload_view(request):
     if request.method == "POST":
         form = FileUploadForm(request.POST, request.FILES)
-
         if form.is_valid():
-            uploaded_file = request.FILES["file"]
-            file_name = default_storage.save(uploaded_file.name, uploaded_file)
-            return redirect("result", file_name=file_name)
+            file = form.save(commit=False)
+            file.name = (file.image.name).split(".")[0]
+            file.save()
+            return redirect("result", file_name=file.name)
+        else:
+            print("form is not valid")
 
     else:
         form = FileUploadForm()
-        context = {"form": form}
-        return render(request, "calorie/index.html", context)
+    context = {"form": form}
+    return render(request, "calorie/index.html", context)
 
 
 def result_view(request, file_name):
     page = "result"
-    context = {"page": page, "file_name": file_name}
+    items = getContent(file_name)
+    file = Food.objects.get(name=file_name)  # type:ignore
+    context = {"page": page, "file": file, "items": items}
     return render(request, "calorie/index.html", context)

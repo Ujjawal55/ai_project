@@ -29,10 +29,9 @@ SECRET_KEY = "django-insecure-p#)je&wst^$r61#)!&_jzc_*$)a+#lw0irkru%m*0_im!tv#nb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "aiproject-production-f0c7.up.railway.app",
-    "https://aiproject-production-f0c7.up.railway.app",
-]
+ALLOWED_HOSTS = []
+# "aiproject-production-f0c7.up.railway.app",
+# "https://aiproject-production-f0c7.up.railway.app",
 CSRF_TRUSTED_ORIGINS = ["https://aiproject-production-f0c7.up.railway.app"]
 
 # Application definition
@@ -45,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "calorie.apps.CalorieConfig",
-    "whitenoise.runserver_nostatic",
+    # "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -56,7 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "caloriefinder.urls"
@@ -88,14 +87,14 @@ WSGI_APPLICATION = "caloriefinder.wsgi.application"
 
 DATABASES = {
     "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
-        # "NAME": BASE_DIR / "db.sqlite3",
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
-        "USER": "postgres",
-        "PASSWORD": os.environ["password_db"],
-        "HOST": "roundhouse.proxy.rlwy.net",
-        "PORT": "32323",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+        # "ENGINE": "django.db.backends.postgresql",
+        # "NAME": "railway",
+        # "USER": "postgres",
+        # "PASSWORD": os.environ["password_db"],
+        # "HOST": "roundhouse.proxy.rlwy.net",
+        # "PORT": "32323",
     }
 }
 
@@ -139,17 +138,18 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 # NOTE: similar to the static url
-MEDIA_URL = "/images/"
+MEDIA_URL = "/media/"
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # NOTE: it specify where we should store the user uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/images/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # NOTE: this settings tell django to look in the given directory for the static files
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static/",
+    BASE_DIR / "media/",
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")

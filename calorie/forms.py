@@ -1,8 +1,12 @@
 from django import forms
 
+from calorie.models import Food
 
-class FileUploadForm(forms.Form):
-    file = forms.FileField(label="Select a file")
+
+class FileUploadForm(forms.ModelForm):
+    class Meta:
+        model = Food
+        fields = ["image"]
 
     def __init__(self, *args, **kwargs):
         super(FileUploadForm, self).__init__(*args, **kwargs)
